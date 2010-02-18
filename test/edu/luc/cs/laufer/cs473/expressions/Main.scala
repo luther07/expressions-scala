@@ -1,12 +1,9 @@
 package edu.luc.cs.laufer.cs473.expressions
 
-import expressions._
-
-object evaluate extends Evaluate
-object extendedEvaluate extends ExtendedEvaluate
 
 object Main {
   def main(args : Array[String]) : Unit = {
+
     val p =
       Div(
         Minus(
