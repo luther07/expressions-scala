@@ -8,6 +8,6 @@ class Evaluate extends ExprAlgebra[Int] {
   override def visitDiv(l: Int, r: Int, e: Div): Int = l / r
 }
 
-object evaluate {
+object Evaluate {
   def apply(e: Expr) = new ExprFold[Int].apply(new Evaluate())(e)
 }

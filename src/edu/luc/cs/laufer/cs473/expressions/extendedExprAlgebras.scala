@@ -5,7 +5,7 @@ class ExtendedEvaluate extends Evaluate with ExtendedExprAlgebra[Int] {
   override def visitUMinus(r: Int, e: UMinus): Int = -r
 }
 
-object extendedEvaluate {
+object ExtendedEvaluate {
   def apply(e: Expr) = new ExtendedExprFold[Int].apply(new ExtendedEvaluate())(e)
 }
 

@@ -19,7 +19,7 @@ object Main {
         Constant(5)
       );
     println("p = " + p)
-    println("evaluate(p) = " + evaluate(p))
+    println("evaluate(p) = " + Evaluate(p))
 
     val q =
         Mod(
@@ -39,6 +39,6 @@ object Main {
         );
 
     println("q = " + q)
-    println("evaluate(q) = " + extendedEvaluate(q))
+    println("evaluate(q) = " + ExtendedEvaluate(q))
   }
 }
