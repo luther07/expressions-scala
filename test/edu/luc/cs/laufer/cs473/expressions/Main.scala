@@ -19,6 +19,7 @@ object Main {
         Constant(5)
       );
     println("p = " + p)
+    println(Print(p))
     println("evaluate(p) = " + Evaluate(p))
 
     val q =
@@ -39,6 +40,7 @@ object Main {
         );
 
     println("q = " + q)
+    println(ExtendedPrint(q))
     println("evaluate(q) = " + ExtendedEvaluate(q))
   }
 }

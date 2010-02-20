@@ -12,3 +12,11 @@ class ExtendedExprFold[R] extends ExprFold[R] {
     case _ => super.apply(v)(e)
   }
 }
+
+class ExtendedExprAdvancedFold[A,R](g: A => A)(b: A)(vFactory: A => ExtendedExprAlgebra[R]) extends ExprAdvancedFold[A,R](g)(b)(vFactory) {
+  override def apply(x: A)(e: Expr): R = e match {
+    case e: Mod => vFactory(x).asInstanceOf[ExtendedExprAlgebra[R]].visitMod(this(g(x))(e.left), this(g(x))(e.right), e)
+    case e: UMinus => vFactory(x).asInstanceOf[ExtendedExprAlgebra[R]].visitUMinus(this(g(x))(e.expr), e)
+    case _ => super.apply(x)(e)
+  }
+}
