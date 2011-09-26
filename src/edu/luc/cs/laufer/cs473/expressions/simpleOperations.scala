@@ -12,12 +12,12 @@ object SimpleOperations {
 
   def size(e: Expr): Int = e match {
     case Constant(c) => 1
-    case CompositeExpr(l, r) => 1 + size(l) + size(r)
+    case e: CompositeExpr => 1 + size(e.left) + size(e.right)
   }
 
   def depth(e: Expr): Int = e match {
     case Constant(c) => 1
-    case CompositeExpr(l, r) => 1 + Math.max(depth(l), depth(r))
+    case e: CompositeExpr => 1 + scala.math.max(depth(e.left), depth(e.right))
   }
 
   def toFormattedString(prefix: String)(e: Expr): String = e match {
@@ -65,7 +65,7 @@ object ExtendedSimpleOperations {
   }
 
   def depth(e: Expr): Int = e match {
-    case Mod(l, r) => 1 + Math.max(depth(l), depth(r))
+    case Mod(l, r) => 1 + scala.math.max(depth(l), depth(r))
     case UMinus(r) => 1 + depth(r)
     case _ => SimpleOperations.depth(e)
   }
