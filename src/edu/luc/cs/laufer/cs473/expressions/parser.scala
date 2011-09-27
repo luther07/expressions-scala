@@ -2,7 +2,7 @@ package edu.luc.cs.laufer.cs473.expressions
 
 import scala.util.parsing.combinator._
 
-class ExprParser extends JavaTokenParsers {
+object ExprParser extends JavaTokenParsers {
   def expr: Parser[Expr] = (
     term ~ "+" ~ term ^^ { case l ~ _ ~ r => Plus(l, r) }
   | term ~ "-" ~ term ^^ { case l ~ _ ~ r => Minus(l, r) }
